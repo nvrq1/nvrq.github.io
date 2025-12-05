@@ -1,0 +1,108 @@
+/* Allgemein */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Hintergrundvideo */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.55);
+}
+
+/* Social Bar like guns.lol */
+.topbar {
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.topbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.topbar a:hover {
+    opacity: 1;
+}
+
+/* Card */
+.card {
+    margin-top: 18vh;
+    background: rgba(0, 0, 0, 0.40);
+    padding: 40px;
+    border-radius: 25px;
+    width: 380px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadein 1s ease;
+}
+
+/* Animation */
+.fade-in {
+    animation: fadein 1.2s ease-out forwards;
+}
+
+@keyframes fadein {
+    from {opacity: 0; transform: translateY(20px);}
+    to   {opacity: 1; transform: translateY(0);}
+}
+
+/* Avatar */
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* Texte */
+.name {
+    font-size: 30px;
+    margin-top: 12px;
+}
+
+.bio {
+    color: #ccc;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+/* Discord Box */
+.discord-box {
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.d-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.discord-box p {
+    margin: 5px 0;
+}
