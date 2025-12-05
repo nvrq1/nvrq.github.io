@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@nvrq • Profile</title>
+    <title>NVRQ Profile</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
-<div class="card">
-    <img src="assets/pfp.png" class="pfp">
+<!-- Hintergrundvideo -->
+<video autoplay muted loop id="bg-video">
+    <source src="assets/background.mp4" type="video/mp4">
+</video>
 
-    <h1 class="name">@nvrq</h1>
-    <p class="bio">Developer • Discord • Cyber Theme</p>
+<!-- Profil-Card -->
+<div class="card fade-in">
 
-    <div class="links">
-
-        <a class="icon-btn" href="https://discord.com/users/DEINE_ID">
-            <i class="fa-brands fa-discord"></i>
-        </a>
-
-        <a class="icon-btn" href="https://github.com/nvrq1">
-            <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a class="icon-btn" href="https://instagram.com/DEIN_INSTAGRAM">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-        <a class="icon-btn" href="https://x.com/DEIN_X">
-            <i class="fa-brands fa-twitter"></i>
-        </a>
-
+    <!-- Discord Mini Profil -->
+    <div id="discord-profile" class="discord-box">
+        <p>Lade Discord Profil...</p>
     </div>
+
+    <!-- Name & Bio -->
+    <h1 class="name">nvrq</h1>
+    <p class="bio">quiet mind, loud dreams</p>
+
+    <!-- Social Icons -->
+    <div class="socials">
+        <a href="https://discord.com" target="_blank" class="social-icon">Discord</a>
+        <a href="https://instagram.com" target="_blank" class="social-icon">Instagram</a>
+        <a href="https://youtube.com" target="_blank" class="social-icon">YouTube</a>
+    </div>
+
+    <!-- Music -->
+    <audio controls>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
 </div>
 
 <script src="script.js"></script>
