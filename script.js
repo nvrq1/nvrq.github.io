@@ -1,25 +1,45 @@
-const userId = "1435071462087327785";
+const discordUserId = "1435071462087327785";
 
 async function loadDiscord() {
     try {
-        let req = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-        let json = await req.json();
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
+        const data = await res.json();
 
-        if (!json.success) {
+        if (!data.success) {
             document.getElementById("discord-profile").innerHTML = "<p>Discord Profil nicht gefunden.</p>";
             return;
         }
 
-        let d = json.data;
+        const d = data.data;
+        const avatarUrl = `https://cdn.discordapp.com/avatars/${discordUserId}/${d.discord_user.avatar}.png?size=128`;
 
-        let avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${d.discord_user.avatar}.png?size=128`;
+        // Status Farben wie guns.lol
+        let statusColor = {
+            online: "#43b581",
+            idle: "#faa61a",
+            dnd: "#f04747",
+            offline: "#747f8d"
+        }[d.discord_status] || "#747f8d";
+
+        // Aktuelle Aktivität
+        let activity = "Keine Aktivität";
+        if (d.activities && d.activities.length > 0) {
+            const act = d.activities[0];
+            activity = act.name || act.type || "Aktiv";
+        }
 
         document.getElementById("discord-profile").innerHTML = `
-            <img class="d-avatar" src="${avatarUrl}">
-            <p><b>${d.discord_user.username}</b>#${d.discord_user.discriminator}</p>
-            <p>Status: ${d.discord_status}</p>
+            <div class="d-avatar-wrapper" style="border: 2px solid ${statusColor}; border-radius: 50%; padding:2px;">
+                <img class="d-avatar" src="${avatarUrl}" alt="Discord Avatar">
+            </div>
+            <div>
+                <p><b>${d.discord_user.username}#${d.discord_user.discriminator}</b></p>
+                <p>Status: <span style="color:${statusColor}; text-transform: uppercase;">${d.discord_status}</span></p>
+                <p>${activity}</p>
+            </div>
         `;
-    } catch (error) {
+    } catch (err) {
+        console.log(err);
         document.getElementById("discord-profile").innerHTML = "<p>Fehler beim Laden.</p>";
     }
 }
